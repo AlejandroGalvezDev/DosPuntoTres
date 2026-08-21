@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Asegura que la cabecera Authorization llegue a PHP incluso en configuraciones
+# de tipo FastCGI/PHP-FPM donde Apache la suele "esconder".
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+
+# Si piden un archivo que existe de verdad (index.php, seed.php...), se sirve tal cual
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Todo lo demás (las rutas de la API) va al front controller
+RewriteRule ^ index.php [L]

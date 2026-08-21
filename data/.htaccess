@@ -1,0 +1,3 @@
+# Bloquea el acceso web directo al archivo .sqlite (defensa en profundidad;
+# lo ideal es que esta carpeta esté fuera de httpdocs si tu hosting lo permite).
+Require all denied

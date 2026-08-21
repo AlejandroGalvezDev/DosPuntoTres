@@ -1,0 +1,28 @@
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /dospuntotres/
+
+  # Deja pasar tal cual las peticiones a la API y a las fotos subidas
+  RewriteCond %{REQUEST_URI} ^/dospuntotres/(api|uploads)/ [NC]
+  RewriteRule ^ - [L]
+
+  # Si el archivo o carpeta pedido existe de verdad (js, css, iconos, etc.), se sirve tal cual
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Cualquier otra ruta (las de React Router) cae en index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(js|css|png|jpg|jpeg|webp|svg|ico)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  <FilesMatch "\.(html|json|webmanifest)$">
+    ExpiresDefault "access plus 0 seconds"
+  </FilesMatch>
+</IfModule>

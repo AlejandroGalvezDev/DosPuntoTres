@@ -1,0 +1,303 @@
+:root {
+  --murdoku-ink: #12161f;
+  --murdoku-paper: #f5f4f8;
+  --murdoku-card: #ffffff;
+  --murdoku-coral: #ff7171;
+  --murdoku-coral-dark: #e95f62;
+  --murdoku-teal: #5cabb3;
+  --murdoku-teal-dark: #3e8f99;
+  --murdoku-lime: #c8dc5b;
+  --murdoku-muted: #68717f;
+  --murdoku-line: 2px solid var(--murdoku-ink);
+  --murdoku-shadow: 4px 4px 0 rgba(18, 22, 31, .92);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--murdoku-paper);
+  color: var(--murdoku-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: .005em;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(92, 171, 179, .11), transparent 27rem),
+    radial-gradient(circle at 90% 18%, rgba(255, 113, 113, .10), transparent 24rem);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Shell principal: tinta oscura con acentos de papel, coral y turquesa. */
+.bg-marino-950 {
+  background-color: var(--murdoku-ink) !important;
+}
+
+.bg-white {
+  background-color: var(--murdoku-card) !important;
+}
+
+.sticky.top-0.z-10.bg-marino-950,
+header.sticky {
+  border-bottom: 3px solid var(--murdoku-ink);
+  box-shadow: 0 5px 0 var(--murdoku-coral), 0 10px 24px rgba(18, 22, 31, .16);
+}
+
+.sticky.top-0.z-10.bg-marino-950::after,
+header.sticky::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 1rem;
+  bottom: .55rem;
+  width: .65rem;
+  height: .65rem;
+  border: 2px solid var(--murdoku-ink);
+  border-radius: 50%;
+  background: var(--murdoku-teal);
+}
+
+/* Tarjetas: contorno negro y sombra desplazada, como una ficha de puzzle. */
+.card,
+.relative.flex.flex-col.items-center.justify-center.gap-3.rounded-2xl.bg-white {
+  border: var(--murdoku-line);
+  border-radius: 1rem;
+  box-shadow: var(--murdoku-shadow);
+}
+
+.card {
+  padding: 1.15rem;
+}
+
+.card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 rgba(18, 22, 31, .92);
+  transition: transform 160ms cubic-bezier(.23, 1, .32, 1), box-shadow 160ms cubic-bezier(.23, 1, .32, 1);
+}
+
+/* Tipografía y jerarquía con títulos compactos, pesados y de alto contraste. */
+.font-display {
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -.035em;
+}
+
+.text-marino-950,
+.text-marino-900,
+.text-marino-800 {
+  color: var(--murdoku-ink) !important;
+}
+
+.text-slate-500,
+.text-slate-600,
+.text-slate-700 {
+  color: var(--murdoku-muted) !important;
+}
+
+.text-turquesa-600,
+.text-turquesa-400 {
+  color: var(--murdoku-teal-dark) !important;
+}
+
+.text-alerta-500 {
+  color: var(--murdoku-coral-dark) !important;
+}
+
+/* Acciones con lectura inmediata y tacto de botón de juego. */
+.btn-primary,
+.btn-secondary {
+  border: var(--murdoku-line);
+  border-radius: .75rem;
+  box-shadow: 3px 3px 0 var(--murdoku-ink);
+  transition: transform 150ms cubic-bezier(.23, 1, .32, 1), box-shadow 150ms cubic-bezier(.23, 1, .32, 1), background-color 150ms ease;
+}
+
+.btn-primary {
+  background: var(--murdoku-coral) !important;
+  color: var(--murdoku-ink) !important;
+}
+
+.btn-primary:hover {
+  background: var(--murdoku-coral-dark) !important;
+  box-shadow: 1px 1px 0 var(--murdoku-ink);
+  transform: translate(2px, 2px);
+}
+
+.btn-secondary {
+  background: var(--murdoku-teal) !important;
+  color: var(--murdoku-ink) !important;
+  border-color: var(--murdoku-ink) !important;
+}
+
+.btn-secondary:hover {
+  background: #78bec4 !important;
+  box-shadow: 1px 1px 0 var(--murdoku-ink);
+  transform: translate(2px, 2px);
+}
+
+/* Campos sólidos y claramente delimitados. */
+.input-field {
+  border: var(--murdoku-line) !important;
+  border-radius: .65rem;
+  background: #fff !important;
+  color: var(--murdoku-ink) !important;
+  box-shadow: inset 0 0 0 1px rgba(18, 22, 31, .04);
+}
+
+.input-field:focus {
+  border-color: var(--murdoku-coral) !important;
+  outline: 3px solid rgba(255, 113, 113, .26);
+  outline-offset: 1px;
+}
+
+/* Píldoras de estado con colores del lenguaje Murdoku. */
+.rounded-full.bg-alerta-500,
+.bg-alerta-500 {
+  background-color: var(--murdoku-coral) !important;
+  color: var(--murdoku-ink) !important;
+  border: 2px solid var(--murdoku-ink);
+}
+
+.rounded-full.bg-exito-500,
+.bg-exito-500 {
+  background-color: var(--murdoku-teal) !important;
+  color: var(--murdoku-ink) !important;
+  border: 2px solid var(--murdoku-ink);
+}
+
+.bg-slate-50,
+.bg-slate-100 {
+  background-color: #eeedf2 !important;
+}
+
+/* Galerías: las imágenes de los tableros se comportan como cartas de puzzle. */
+.grid.gap-2 > button {
+  border: var(--murdoku-line) !important;
+  border-radius: .65rem !important;
+  background: var(--murdoku-card);
+  box-shadow: 2px 2px 0 var(--murdoku-ink);
+  transition: transform 150ms cubic-bezier(.23, 1, .32, 1), box-shadow 150ms cubic-bezier(.23, 1, .32, 1);
+}
+
+.grid.gap-2 > button:hover {
+  border-color: var(--murdoku-coral) !important;
+  box-shadow: 1px 1px 0 var(--murdoku-ink);
+  transform: translate(1px, 1px);
+}
+
+.grid.gap-2 > button img {
+  border-radius: .45rem;
+}
+
+/* Enlaces y estados interactivos. */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.text-turquesa-600:hover,
+a.text-turquesa-400:hover {
+  color: var(--murdoku-coral-dark) !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--murdoku-lime);
+  outline-offset: 3px;
+}
+
+/* Ajuste responsive: conserva la densidad de un puzzle en pantallas pequeñas. */
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+    box-shadow: 3px 3px 0 rgba(18, 22, 31, .92);
+  }
+
+  .sticky.top-0.z-10.bg-marino-950,
+  header.sticky {
+    box-shadow: 0 4px 0 var(--murdoku-coral), 0 8px 18px rgba(18, 22, 31, .18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+
+/* Override del posicionamiento heredado del botón flotante Añadir. */
+button[aria-label^="Añadir"] {
+  background: var(--murdoku-coral) !important;
+  color: var(--murdoku-ink) !important;
+  border: 2px solid var(--murdoku-ink) !important;
+  box-shadow: 3px 3px 0 var(--murdoku-ink) !important;
+}
+
+button[aria-label^="Añadir"]:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--murdoku-ink) !important;
+}
+
+/* El lightbox conserva protagonismo para revisar un tablero en detalle. */
+.fixed.inset-0.z-50 {
+  background: rgba(18, 22, 31, .94) !important;
+}
+
+.fixed.inset-0.z-50 img {
+  border: 3px solid var(--murdoku-card);
+  box-shadow: 7px 7px 0 var(--murdoku-coral);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  .grid.gap-2 > button {
+    animation: murdoku-rise 260ms cubic-bezier(.23, 1, .32, 1) both;
+  }
+}
+
+@keyframes murdoku-rise {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* El contenido de carga queda alineado con la identidad visual. */
+.text-center.text-white\/40,
+.p-6.text-center.text-white\/40 {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+.text-xs.uppercase.tracking-\[0\.2em\].text-turquesa-400 {
+  color: var(--murdoku-coral) !important;
+  letter-spacing: .16em;
+}
+
+/* Revisión del tablero en una fotografía: marco tipo tarjeta de puzzle. */
+.card img {
+  border-radius: .5rem;
+}
+
+.card img[alt="Fotografía"] {
+  background: #eeedf2;
+}
+
+.card img[alt="Fotografía ampliada"] {
+  border-radius: .55rem;
+}
+
+@media (max-width: 480px) {
+  .grid.gap-2 {
+    gap: .6rem;
+  }
+}
